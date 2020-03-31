@@ -366,11 +366,7 @@ const createEditTemplate = () => {
   );
 };
 
-const createLoadMoreTemplate = () => {
-  return (
-    `<button class="load-more" type="button">load more</button>`
-  );
-};
+const createLoadMoreTemplate = () => `<button class="load-more" type="button">load more</button>`;
 
 const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
@@ -385,8 +381,12 @@ const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 
 render(taskListElement, createEditTemplate());
 
-for (let i = 0; i < TASK_COUNT; i++) {
-  render(taskListElement, createTaskTemplate());
-}
+const renderTasks = (container, template) => {
+  for (let i = 0; i < TASK_COUNT; i++) {
+    render(container, template);
+  }
+};
+
+renderTasks(taskListElement, createTaskTemplate());
 
 render(boardElement, createLoadMoreTemplate());
