@@ -1,12 +1,3 @@
-* text eol=lf
-
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.webp binary
-*.woff binary
-*.woff2 binary
-
 # Файлы и папки операционной системы
 .DS_Store
 Thumbs.db
@@ -20,5 +11,4 @@ Thumbs.db
 *.log*
 node_modules/
 
-# Папка с собранными файлами проекта
-build/
+# Файлы сборки (допишите самостоятельно)
