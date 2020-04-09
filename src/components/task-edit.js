@@ -1,11 +1,5 @@
-import {
-  MONTH_NAMES,
-  DAYS,
-  COLORS
-} from "./constants";
-import {
-  formatTime
-} from "../utils";
+import {MONTH_NAMES, DAYS, COLORS} from "./constants";
+import {formatTime} from "../utils";
 
 const createColorsMarkup = (colors, currentColor) => colors
   .map((color, index) => {
@@ -45,12 +39,7 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => days.map((day, index)
 }).join(`\n`);
 
 export const createEditTemplate = (task) => {
-  const {
-    description,
-    dueDate,
-    color,
-    repeatingDays
-  } = task;
+  const {description, dueDate, color, repeatingDays} = task;
 
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
   const isDateShowing = !!dueDate;

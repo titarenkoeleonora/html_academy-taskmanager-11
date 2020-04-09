@@ -1,6 +1,4 @@
-import {
-  FILTER_NAMES
-} from "../constants.js";
+import {FILTER_NAMES} from "../constants.js";
 
 export const generateFilters = () => FILTER_NAMES.map((it) => {
   return {
