@@ -25,3 +25,6 @@ export const MONTH_NAMES = [
 ];
 
 export const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+
+
+export const ESCAPE = `Escape`;
