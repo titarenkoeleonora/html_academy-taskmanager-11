@@ -8,9 +8,9 @@ import SiteMenuComponent from "./components/site-menu.js";
 import SortComponent from "./components/sort.js";
 import {generateFilters} from "./components//mock/filter.js";
 import {generateTasks} from "./components/mock/task.js";
-import {render} from "./utils.js";
-import {RenderPosition, ESCAPE} from "./components/constants.js";
 import NoTasksComponent from "./components/no-tasks.js";
+import {render} from "./utils/render.js";
+import {ESCAPE, RenderPosition} from "./constants.js";
 
 
 const TaskCount = {

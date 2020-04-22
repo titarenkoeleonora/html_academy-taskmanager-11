@@ -1,5 +1,7 @@
-import {getRandomArrayItem, getRandomDate} from "../../utils";
-import {COLORS, DAYS} from "../constants";
+import {getRandomDate} from "../../utils/date-utils";
+import {getRandomArrayItem} from "../../utils/common";
+import {DAYS, COLORS} from "../../constants";
+
 
 const DescriptionItems = [
   `Изучить теорию`,
@@ -16,12 +18,6 @@ const DefaultRepeatingDays = {
   "sa": false,
   "su": false,
 };
-
-// const generateRepeatingDays = () => {
-//   return Object.assign({}, DefaultRepeatingDays, {
-//     "mo": Math.random() > 0.5,
-//   });
-// };
 
 const generateRepeatingDays = () => {
   return DAYS.reduce((days, day) => {

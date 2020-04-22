@@ -1,6 +1,6 @@
-import {MONTH_NAMES, DAYS, COLORS} from "./constants";
-import {formatTime} from "../utils";
 import AbstractComponent from "./abstract-component";
+import {formatTime} from "../utils/date-utils";
+import {MONTH_NAMES, COLORS, DAYS} from "../constants";
 
 const createColorsMarkup = (colors, currentColor) => colors
   .map((color, index) => {
