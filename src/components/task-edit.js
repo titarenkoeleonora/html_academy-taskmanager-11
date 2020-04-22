@@ -125,7 +125,7 @@ const createEditTemplate = (task) => {
   );
 };
 
-export default class TaskEdit extends AbstractComponent {
+export default class TaskEditComponent extends AbstractComponent {
   constructor(taskEdit) {
     super();
 
@@ -134,5 +134,10 @@ export default class TaskEdit extends AbstractComponent {
 
   getTemplate() {
     return createEditTemplate(this._taskEdit);
+  }
+
+  setSubmitClickHandler(handler) {
+    this.getElement().querySelector(`form`)
+      .addEventListener(`submit`, handler);
   }
 }

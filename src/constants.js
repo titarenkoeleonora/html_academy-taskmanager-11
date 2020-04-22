@@ -27,3 +27,9 @@ export const MONTH_NAMES = [
 export const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
 
 export const ESCAPE = `Escape`;
+
+export const TaskCount = {
+  TOTAL: 25,
+  SHOWING_BY_BUTTON: 8,
+  SHOWING_ON_START: 8,
+};
