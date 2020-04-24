@@ -1,25 +1,13 @@
-import {createElement} from "../utils";
+import AbstractComponent from "./abstract-component";
 
 const createLoadMoreTemplate = () => `<button class="load-more" type="button">load more</button>`;
 
-export default class LoadMore {
-  constructor() {
-
-    this._element = null;
-  }
-
+export default class LoadMoreButtonComponent extends AbstractComponent {
   getTemplate() {
     return createLoadMoreTemplate();
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setClickHandler(handler) {
+    this.getElement().addEventListener(`click`, handler);
   }
 }
