@@ -33,3 +33,8 @@ export const TaskCount = {
   SHOWING_BY_BUTTON: 8,
   SHOWING_ON_START: 8,
 };
+
+export const Mode = {
+  DEFAULT: `default`,
+  EDIT: `edit`,
+};

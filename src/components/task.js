@@ -2,8 +2,8 @@ import AbstractComponent from "./abstract-component";
 import {formatTime} from "../utils/date-utils";
 import {MONTH_NAMES} from "../constants";
 
-const createTaskTemplate = (task) => {
-  const {description, dueDate, color, repeatingDays, isArchive, isFavorite} = task;
+const createTaskTemplate = (task, isActive = true) => {
+  const {description, dueDate, color, repeatingDays} = task;
 
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
   const isDateShowing = !!dueDate;
@@ -13,8 +13,7 @@ const createTaskTemplate = (task) => {
 
   const repeatClass = Object.values(repeatingDays).some(Boolean) ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
-  const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
-  const favoriteButtonInactiveClass = isFavorite ? `` : `card__btn--disabled`;
+  isActive = isActive ? `` : `card__btn--disabled`;
 
   return (
     `<article class="card card--${color} ${repeatClass} ${deadlineClass}"">
@@ -24,12 +23,12 @@ const createTaskTemplate = (task) => {
           <button type="button" class="card__btn card__btn--edit">
             edit
           </button>
-          <button type="button" class="card__btn card__btn--archive ${archiveButtonInactiveClass}">
+          <button type="button" class="card__btn card__btn--archive ${isActive}">
             archive
           </button>
           <button
             type="button"
-            class="card__btn card__btn--favorites card__btn--disabled ${favoriteButtonInactiveClass}"
+            class="card__btn card__btn--favorites ${isActive}"
           >
             favorites
           </button>
@@ -77,5 +76,13 @@ export default class TaskComponent extends AbstractComponent {
   setEditButtonClickHandler(handler) {
     this.getElement().querySelector(`.card__btn--edit`)
       .addEventListener(`click`, handler);
+  }
+
+  setArchiveButtonClickHandler(handler) {
+    this.getElement().querySelector(`.card__btn--archive`).addEventListener(`click`, handler);
+  }
+
+  setFavoritesButtonClickHandler(handler) {
+    this.getElement().querySelector(`.card__btn--favorites`).addEventListener(`click`, handler);
   }
 }
