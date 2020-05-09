@@ -1,5 +1,5 @@
-import {formatTime} from "../utils/date-utils";
-import {MONTH_NAMES, COLORS, DAYS} from "../constants";
+import {COLORS, DAYS} from "../constants.js";
+import {formatTime, formatDate} from "../utils/date-utils.js";
 import AbstractSmartComponent from "./abstract-smart-component";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
@@ -52,7 +52,7 @@ const createEditTemplate = (task, options) => {
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
   const isBlockSaveButton = (isDateShowing && isRepeatingTask) || (isRepeatingTask && !isRepeating(activeRepeatingDays));
 
-  const date = isDateShowing ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}` : ``;
+  const date = (isDateShowing && dueDate) ? formatDate(dueDate) : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
 
   const repeatClass = isRepeatingTask ? `card--repeat` : ``;
